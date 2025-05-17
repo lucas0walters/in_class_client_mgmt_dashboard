@@ -1,12 +1,13 @@
-# React + Vite
+## Coding Project: Client Management Dashboard Using React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and responsive client management dashboard built with **React** and modern component-based design. This application allows users to add new clients, filter them by industry, and view all client data in a sortable, mobile-friendly table. Key features and skills demonstrated include:
 
-Currently, two official plugins are available:
+- State management and lifecycle control with `useState` and `useEffect`
+- Dynamic form handling for adding new clients
+- Real-time filtering of clients by industry, with filter options generated from current data
+- Responsive, accessible UI using custom CSS and media queries
+- Modular architecture with reusable components (`App`, `AddClientForm`, `IndustryFilter`, `ClientList`)
+- Clean, professional design with consistent theming and drop shadows
+- The ability to work under pressure and within significant time constraints
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The dashboard is ideal for showcasing CRUD operations, controlled components, and responsive design best practices in a React environment. A next step for this project would be to hook it into a PostgreSQL database.
