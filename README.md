@@ -1,6 +1,6 @@
 ## Coding Project: Client Management Dashboard Using React
 
-A sleek and responsive client management dashboard built with **React** and modern component-based design. This application allows users to add new clients, filter them by industry, and view all client data in a sortable, mobile-friendly table. Key features and skills demonstrated include:
+A sleek and responsive client management dashboard built over an hour with **React** and modern component-based design. This application allows users to add new clients, filter them by industry, and view all client data in a sortable, mobile-friendly table. Key features and skills demonstrated include:
 
 - State management and lifecycle control with `useState` and `useEffect`
 - Dynamic form handling for adding new clients
