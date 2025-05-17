@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddClientForm from './components/AddClientForm';
 import IndustryFilter from './components/IndustryFilter';
 import ClientList from './components/ClientList';
@@ -8,7 +8,7 @@ const App = () => {
   const [selectedIndustry, setSelectedIndustry] = useState('');
 
   const addClient = (newClient) => {
-    setClients([...clients, newClient]);
+    setClients(prevClients => [...prevClients, newClient]);
   };
 
   const filterByIndustry = (industry) => {
@@ -19,11 +19,26 @@ const App = () => {
     ? clients.filter(client => client.industry === selectedIndustry)
     : clients;
 
+  // Only add example clients once on mount
+  useEffect(() => {
+    const exampleClients = [
+      { name: 'John Doe', email: 'john.doe@example.com', industry: 'Technology' },
+      { name: 'Nick Fletcher', email: 'nick@brightgrid.com', industry: 'Finance' },
+      { name: 'Alice Johnson', email: 'alice.johnson@example.com', industry: 'Healthcare' },
+      { name: 'Rocky D. Bull', email: 'rocky@usf.edu', industry: 'Education' }
+    ];
+    setClients(exampleClients);
+  }, []);
+
   return (
     <div>
       <h1>Client Management Dashboard</h1>
       <AddClientForm addClient={ addClient } />
-      <IndustryFilter selectedIndustry={selectedIndustry} filterByIndustry={filterByIndustry} />
+      <IndustryFilter
+        clients={clients}
+        selectedIndustry={selectedIndustry}
+        filterByIndustry={filterByIndustry}
+      />
       <ClientList clients={filteredClients} />
     </div>
   );

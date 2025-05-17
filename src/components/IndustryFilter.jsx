@@ -1,16 +1,17 @@
 import React from 'react';
 
-const IndustryFilter = ({ filterByIndustry }) => {
-    const handleChange = (event) => {
-        filterByIndustry(event.target.value);
-    };
+const IndustryFilter = ({ clients, selectedIndustry, filterByIndustry }) => {
+    // Get unique industries from the clients array
+    const industries = Array.from(new Set(clients.map(client => client.industry))).filter(Boolean);
 
     return (
-        <select onChange={handleChange}>
+        <select value={selectedIndustry} onChange={e => filterByIndustry(e.target.value)}>
             <option value="">All</option>
-            <option value="Finance">Finance</option>
-            <option value="Tech">Tech</option>
-            <option value="Retail">Retail</option>
+            {industries.map(industry => (
+                <option key={industry} value={industry}>
+                    {industry}
+                </option>
+            ))}
         </select>
     );
 };

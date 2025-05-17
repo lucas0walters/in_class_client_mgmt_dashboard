@@ -6,6 +6,12 @@
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-color);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -14,6 +20,7 @@
   font-family: 'Arial', sans-serif;
   background-color: var(--secondary-color);
   color: var(--text-color);
+  min-height: 100vh;
 }
 
 h1 {
@@ -28,6 +35,9 @@ form {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 form div {
@@ -48,6 +58,7 @@ form select {
   border: 1px solid #ccc;
   border-radius: var(--border-radius);
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 form button {
@@ -59,6 +70,7 @@ form button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
 }
 
 form button:hover {
@@ -72,45 +84,53 @@ select {
   font-size: 1rem;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.client-table-container {
+  overflow-x: auto;
+  overflow-y: visible;      
+  margin: 0 auto 2rem auto;
+  max-width: 800px;
+  background: none;         
+  box-shadow: var(--box-shadow);
 }
 
-ul li {
+.client-table {
+  width: 100%;
+  border-collapse: separate;
   background: white;
-  margin: 0.5rem 0;
+  border-radius: var(--border-radius);
+  margin: 0 auto;
+  overflow: hidden;
+  border-spacing: 0;
+}
+
+.client-table th,
+.client-table td {
   padding: 1rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
   text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
-ul li strong {
-  color: var(--primary-color);
+.client-table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
 }
 
-.card {
-  padding: 2em;
-  background: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+.client-table tr:last-child td {
+  border-bottom: none;
 }
 
-.read-the-docs {
-  color: #888;
-  margin-top: 1rem;
-}
-
-button {
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 900px) {
   #root {
     padding: 1rem;
   }
+  form {
+    max-width: 100%;
+  }
+}
 
+@media (max-width: 600px) {
   h1 {
     font-size: 2rem;
   }
@@ -119,7 +139,12 @@ button {
     padding: 1rem;
   }
 
-  ul li {
-    padding: 0.75rem;
+  .client-table th,
+  .client-table td {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .client-table-container {
+    padding: 0 0.25rem;
   }
 }
